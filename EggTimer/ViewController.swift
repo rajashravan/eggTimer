@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var secondsRemaining: Int = 1
     var cookTime: Int = 1
     
+    @IBOutlet weak var EggCookLabel: UILabel!
     
     @IBOutlet weak var progressView: UIProgressView!
 
@@ -23,6 +24,9 @@ class ViewController: UIViewController {
         secondsRemaining = eggTimes[hardness]!
         cookTime = secondsRemaining
         
+        progressView.setProgress(0.0, animated: true)
+        EggCookLabel.text = hardness
+        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target:self, selector: #selector(updateTimer), userInfo:nil, repeats: true)
         
     }
@@ -30,10 +34,6 @@ class ViewController: UIViewController {
     @objc func updateTimer() {
         let timeElapsed: Int = cookTime - secondsRemaining
         let progress: Float = Float(timeElapsed) / Float(cookTime)
-//        print("progress should be \(timeElapsed / cookTime)")
-//        print("CookTime: \(cookTime)")
-//        print("SecondsReamaining: \(secondsRemaining)")
-//        print("Progress: \(progress)")
         progressView.setProgress(progress, animated: true)
         
         if secondsRemaining == 0 {

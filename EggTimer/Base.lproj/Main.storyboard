@@ -141,6 +141,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="EggCookLabel" destination="XLm-5r-pSP" id="TTh-Bb-dwH"/>
                         <outlet property="progressView" destination="AKL-3b-41i" id="tOC-mY-wbr"/>
                     </connections>
                 </viewController>
